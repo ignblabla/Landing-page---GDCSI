@@ -105,12 +105,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <div class="soon"><i></i>Lanzamos en breve</div>
       <h1 id="titulo">La tranquilidad de saber que tus hijos llegan al colegio a tiempo y seguros.</h1>
       <p class="lead">Una red de seguridad logística vecinal e instantánea para padres que no pueden permitirse fallar. Sin arriesgar tu puesto de trabajo.</p>
-      <form class="signup" novalidate>
-        <input type="email" name="email" placeholder="tu@correo.com" aria-label="Correo electrónico" autocomplete="email" required>
+      
+      <!-- Formulario conectado a Brevo -->
+      <form class="signup" action="https://7ea8cac9.sibforms.com/serve/MUIFABGU-qYv0rzmRdiMYQ_6mWiCODko3xQIomTROzrViYERcYP51DvGm8kR354N79AG_8w1J_KHiXbyyI8DonlSFa6xiUYFceVBrtlJ1530QiBBoiI0Ll_5KByS4qwm2JcjKgdLmOovbUs8sg2MfqYnERYZJpusZ_F-rS0bBjjpTHtX-tUAFtjPYJDfcEt-66JducMTb4oigTPJIg==" method="POST" target="hidden_iframe" novalidate>
+        <input type="email" name="EMAIL" placeholder="tu@correo.com" aria-label="Correo electrónico" autocomplete="email" required>
         <button class="btn" type="submit">Quiero acceso cuando se lance</button>
         <label class="consent"><input type="checkbox" required> Acepto recibir un aviso del lanzamiento y la política de privacidad.</label>
         <p class="msg" role="status" aria-live="polite"></p>
       </form>
+      <!-- Iframe invisible para procesar el envío sin recargar -->
+      <iframe name="hidden_iframe" style="display:none;"></iframe>
+
     </div>
   </div>
 </section>
@@ -176,16 +181,41 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </footer>
 
 <script>
-document.querySelector('form.signup').addEventListener('submit',function(e){
-  e.preventDefault();
-  var f=e.target,email=f.querySelector('input[type=email]'),ok=f.querySelector('input[type=checkbox]'),msg=f.querySelector('.msg');
+document.querySelector('form.signup').addEventListener('submit', function(e){
+  var f = e.target,
+      email = f.querySelector('input[type=email]'),
+      ok = f.querySelector('input[type=checkbox]'),
+      msg = f.querySelector('.msg');
+      
   msg.classList.remove('err');
-  if(!email.value||!email.checkValidity()){msg.classList.add('err');msg.textContent='Introduce un correo electrónico válido.';email.focus();return;}
-  if(!ok.checked){msg.classList.add('err');msg.textContent='Marca la casilla de privacidad para continuar.';return;}
-  /* TODO: enviar email.value a tu proveedor (Mailchimp, Brevo, etc.) */
-  if(window.gtag){gtag('event','generate_lead',{method:'landing'});}
-  msg.textContent='¡Listo! Te avisaremos en cuanto lancemos.';
-  f.reset();
+  
+  // Validaciones
+  if(!email.value || !email.checkValidity()){
+    e.preventDefault(); // Detenemos el envío porque hay un error
+    msg.classList.add('err');
+    msg.textContent = 'Introduce un correo electrónico válido.';
+    email.focus();
+    return;
+  }
+  if(!ok.checked){
+    e.preventDefault(); // Detenemos el envío porque hay un error
+    msg.classList.add('err');
+    msg.textContent = 'Marca la casilla de privacidad para continuar.';
+    return;
+  }
+  
+  // Si llegamos aquí, el formulario se envía al iframe oculto
+  
+  // 1. Mandamos el evento a Google Analytics para medir la conversión
+  if(window.gtag){
+    gtag('event','generate_lead',{method:'landing'});
+  }
+  
+  // 2. Mostramos tu mensaje de éxito
+  msg.textContent = '¡Listo! Te avisaremos en cuanto lancemos.';
+  
+  // 3. Limpiamos el formulario después de 2 segundos
+  setTimeout(function(){ f.reset(); }, 2000);
 });
 </script>
 </body>
