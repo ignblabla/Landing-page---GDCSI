@@ -13,16 +13,12 @@
 --display:'Bricolage Grotesque',system-ui,sans-serif;--body:'Figtree',system-ui,sans-serif}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
 :focus-visible{outline:3px solid var(--bus);outline-offset:3px;border-radius:4px}
 .wrap{max-width:1080px;margin:0 auto;padding:0 24px;width:100%}
-section{padding:88px 0}
-.sec-head{max-width:40em;margin:0 0 48px}
-.sec-head h2{font:800 clamp(1.8rem,3.6vw,2.6rem)/1.1 var(--display);letter-spacing:-.02em;margin:0 0 14px}
-.sec-head p{margin:0;color:var(--ink-2);font-size:1.125rem}
 
 /* HERO */
-.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding:0}
+.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding:0;flex:1}
 .hero::after{content:"";position:absolute;right:-120px;top:-120px;width:460px;height:460px;border-radius:50%;border:2px dashed rgba(127,209,189,.25)}
 header{padding:24px 0}
 .logo{display:inline-flex;align-items:center;gap:10px;font:700 1.15rem var(--display);color:#fff}
@@ -43,41 +39,11 @@ h1{font:800 clamp(2.3rem,5.2vw,4.1rem)/1.05 var(--display);letter-spacing:-.025e
 .msg{flex-basis:100%;margin:0;font-weight:600;color:var(--route-l);min-height:1.4em}
 .msg.err{color:#ff9a82}
 
-/* CÓMO FUNCIONA */
-.how{background:#fff;border-bottom:1px solid var(--line)}
-.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:40px;counter-reset:s;position:relative}
-.steps li{counter-increment:s;position:relative;padding-top:64px}
-.steps li::before{content:counter(s);position:absolute;top:0;left:0;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--bus);font:800 1.2rem/44px var(--display);text-align:center;z-index:1}
-.steps li::after{content:"";position:absolute;top:21px;left:56px;right:-28px;border-top:3px dotted var(--route);opacity:.5}
-.steps li:last-child::after{display:none}
-.steps h3{font:700 1.2rem var(--display);margin:0 0 8px}
-.steps p{margin:0;color:var(--ink-2)}
-
-/* VENTAJAS */
-.features-sec{background:var(--bg)}
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-.feature-card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--route);border-radius:12px;padding:32px 28px}
-.icon-wrapper{width:48px;height:48px;border-radius:12px;background:#dcefea;color:var(--route);display:grid;place-items:center;margin-bottom:20px}
-.icon-wrapper svg{width:24px;height:24px}
-.feature-card h3{font:700 1.25rem var(--display);margin:0 0 8px}
-.feature-card p{margin:0;color:var(--ink-2)}
-
-/* CTA FINAL */
-.cta{background:var(--bus);padding:72px 0}
-.cta .wrap{display:flex;gap:32px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-.cta h2{font:800 clamp(1.6rem,3.2vw,2.3rem)/1.12 var(--display);letter-spacing:-.02em;margin:0 0 6px;max-width:20em}
-.cta p{margin:0;max-width:34em}
-.cta .btn{background:var(--ink);color:#fff}
-.cta .btn:hover{background:var(--route)}
-.cta :focus-visible{outline-color:var(--ink)}
-
-footer{background:var(--ink);color:#b9cfd0;padding:28px 0;font-size:.9rem}
+footer{background:var(--ink);color:#b9cfd0;padding:28px 0;font-size:.9rem;border-top:1px solid rgba(255,255,255,.08)}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 @media(max-width:700px){
-  section{padding:64px 0}
   .btn{width:100%}
-  .steps li::after{display:none}
 }
 @media(prefers-reduced-motion:reduce){.soon i{animation:none}html{scroll-behavior:auto}}
 </style>
@@ -117,62 +83,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <iframe name="hidden_iframe" style="display:none;"></iframe>
 
     </div>
-  </div>
-</section>
-
-<section class="how" aria-labelledby="como">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 id="como">Cómo funciona</h2>
-      <p>Tres pasos para que un imprevisto no se convierta en un problema.</p>
-    </div>
-    <ol class="steps">
-      <li><h3>Únete con tu colegio</h3><p>Te registras y confirmamos que perteneces al censo del AMPA de tu centro.</p></li>
-      <li><h3>Avisa del imprevisto</h3><p>Si no llegas a tiempo, lo indicas en segundos desde tu móvil.</p></li>
-      <li><h3>Tu hijo llega seguro</h3><p>Te asignamos una ruta de respaldo y sigues el trayecto en tiempo real.</p></li>
-    </ol>
-  </div>
-</section>
-
-<section class="features-sec" aria-labelledby="ventajas">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 id="ventajas">Pensado para familias que no pueden fallar</h2>
-      <p>Confianza, rapidez y visibilidad en cada trayecto.</p>
-    </div>
-    <div class="features">
-      <div class="feature-card">
-        <div class="icon-wrapper">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-        </div>
-        <h3>Censo Validado del AMPA</h3>
-        <p>Un filtro de confianza inmediato. Tu red de apoyo está formada exclusivamente por familias verificadas de tu mismo colegio.</p>
-      </div>
-      <div class="feature-card">
-        <div class="icon-wrapper">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-        </div>
-        <h3>Reasignación Exprés</h3>
-        <p>Si surge un imprevisto, nuestro algoritmo te reasigna una ruta de respaldo de última hora.</p>
-      </div>
-      <div class="feature-card">
-        <div class="icon-wrapper">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-        </div>
-        <h3>Tracking GPS Real</h3>
-        <p>Recibe notificaciones en tiempo real cuando tu hijo sea recogido y entregado en la puerta del centro.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="cta" aria-labelledby="cta-t">
-  <div class="wrap">
-    <div>
-      <h2 id="cta-t">Sé de las primeras familias en tener acceso</h2>
-      <p>Te avisaremos una sola vez, cuando lancemos.</p>
-    </div>
-    <a class="btn" href="#registro">Quiero acceso cuando se lance</a>
   </div>
 </section>
 
