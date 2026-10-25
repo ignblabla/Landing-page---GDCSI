@@ -3,49 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Movilidad Escolar · Lanzamos en breve</title>
-<meta name="description" content="Si no llegas a recoger a tus hijos, una familia verificada de su instituto lo hace por ti. Sin deber favores. Para familias con hijos de 9 a 17 años. Regístrate para acceder cuando lancemos.">
+<title>Movilidad Escolar · Piloto abierto por institutos</title>
+<meta name="description" content="Si no llegas a recoger a tus hijos, una familia verificada de su centro lo hace por ti. Sin deber favores. Para familias con hijos de 9 a 17 años. Reserva tu plaza en el piloto.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#0e2a33;--ink-2:#3d5560;--line:#d5e0e0;--bg:#f5f8f7;--route:#1b7a68;--route-l:#7fd1bd;--bus:#ffc933;--alert:#d9482b;
+:root{--ink:#0e2a33;--ink-d:#0b232b;--card:#153843;--card-2:#18404b;--line:rgba(255,255,255,.09);--line-2:rgba(255,255,255,.14);
+--text:#fff;--muted:#a9c2c4;--route-l:#7fd1bd;--bus:#ffc933;--alert:#ff9a82;
 --display:'Bricolage Grotesque',system-ui,sans-serif;--body:'Figtree',system-ui,sans-serif}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+body{margin:0;background:var(--ink);color:var(--text);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased}
 :focus-visible{outline:3px solid var(--bus);outline-offset:3px;border-radius:4px}
+a{color:inherit}
 .wrap{max-width:1080px;margin:0 auto;padding:0 24px;width:100%}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;margin:0}
+h2{font-weight:800;font-size:clamp(1.8rem,3.4vw,2.5rem);line-height:1.1;max-width:20em;margin-bottom:36px}
+h3{font-weight:700;font-size:1.1rem;line-height:1.3}
+p{margin:0}
+.eyebrow{font:700 .8rem var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--bus);margin-bottom:12px}
+section{padding:88px 0;border-top:1px solid var(--line)}
+.card{background:var(--card);border:1px solid var(--line-2);border-radius:14px}
+.checks{list-style:none;margin:0;padding:0}
+.checks li{position:relative;padding-left:20px;margin:6px 0;font-size:.95rem}
+.checks li::before{content:"✓";position:absolute;left:0;color:var(--bus);font-weight:700}
+
+/* NAV */
+header{position:relative;z-index:2;padding:22px 0}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:inline-flex;align-items:center;gap:10px;font:700 1.15rem var(--display);color:#fff;text-decoration:none}
+.logo svg{width:32px;height:32px}
+nav{display:flex;align-items:center;gap:28px;font-size:.95rem}
+nav a{text-decoration:none;color:#dbe7e7}
+nav a:hover{color:#fff}
+.btn{display:inline-block;background:var(--bus);color:var(--ink);font:700 1rem var(--body);padding:15px 24px;border:0;border-radius:10px;cursor:pointer;text-decoration:none;text-align:center;transition:background .2s}
+.btn:hover{background:#ffd75e}
+.btn-sm{padding:9px 16px;font-size:.92rem;border-radius:8px;white-space:nowrap}
 
 /* HERO */
-.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding:0;flex:1}
-.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:460px;height:460px;border-radius:50%;border:2px dashed rgba(127,209,189,.25)}
-header{padding:24px 0}
-.logo{display:inline-flex;align-items:center;gap:10px;font:700 1.15rem var(--display);color:#fff}
-.logo svg{width:32px;height:32px}
-.hero-body{padding:64px 0 104px;position:relative;z-index:1}
-.soon{display:inline-flex;align-items:center;gap:10px;background:var(--bus);color:var(--ink);font:600 .95rem var(--body);padding:8px 16px;border-radius:999px;margin-bottom:28px}
-.soon i{width:9px;height:9px;border-radius:50%;background:var(--ink);animation:pulse 2s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(14,42,51,.45)}70%{box-shadow:0 0 0 8px rgba(14,42,51,0)}100%{box-shadow:0 0 0 0 rgba(14,42,51,0)}}
-h1{font:800 clamp(2.3rem,5.2vw,4.1rem)/1.05 var(--display);letter-spacing:-.025em;margin:0 0 24px;max-width:15em}
-.lead{font-size:1.25rem;color:#b9cfd0;max-width:34em;margin:0 0 40px}
-.signup{display:flex;gap:10px;flex-wrap:wrap;max-width:580px}
-.signup input[type=email]{flex:1 1 260px;padding:15px 18px;font:inherit;border:2px solid transparent;border-radius:10px;background:#fff;color:var(--ink)}
+.hero{position:relative;overflow:hidden;border-top:0;padding:56px 0 72px}
+.hero::after{content:"";position:absolute;right:-180px;top:-260px;width:560px;height:560px;border-radius:50%;border:1px solid rgba(127,209,189,.18);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:64px;align-items:end;position:relative;z-index:1}
+.pill{display:inline-flex;align-items:center;gap:8px;background:rgba(127,209,189,.08);border:1px solid rgba(127,209,189,.35);color:var(--route-l);font:600 .85rem var(--body);padding:6px 14px;border-radius:999px;margin-bottom:24px}
+.pill i{width:7px;height:7px;border-radius:50%;background:var(--route-l);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(127,209,189,.5)}70%{box-shadow:0 0 0 7px rgba(127,209,189,0)}100%{box-shadow:0 0 0 0 rgba(127,209,189,0)}}
+h1{font-weight:800;font-size:clamp(2.4rem,5.4vw,4rem);line-height:1.02;letter-spacing:-.03em;margin:0 0 24px;max-width:11em}
+.lead{font-size:1.2rem;color:var(--muted);max-width:30em;margin:0 0 32px}
+.signup{display:flex;gap:10px;flex-wrap:wrap;max-width:560px}
+.signup input[type=email]{flex:1 1 240px;padding:15px 18px;font:inherit;border:2px solid transparent;border-radius:10px;background:#fff;color:var(--ink)}
 .signup input[type=email]:focus{outline:none;border-color:var(--bus)}
-.btn{display:inline-block;background:var(--bus);color:var(--ink);font:600 1rem var(--body);padding:15px 26px;border:0;border-radius:10px;cursor:pointer;text-decoration:none;text-align:center;transition:background .2s}
-.btn:hover{background:#ffd75e}
-.consent{flex-basis:100%;display:flex;gap:10px;align-items:flex-start;font-size:.88rem;color:#b9cfd0;line-height:1.4}
-.consent input{margin-top:3px;accent-color:var(--bus)}
+.consent{flex-basis:100%;display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--muted);line-height:1.4;margin-top:4px}
+.consent input{margin-top:2px;accent-color:var(--bus)}
 .msg{flex-basis:100%;margin:0;font-weight:600;color:var(--route-l);min-height:1.4em}
-.msg.err{color:#ff9a82}
+.msg.err{color:var(--alert)}
+.plan{padding:26px 28px;background:var(--card-2)}
+.plan-name{font:600 .78rem var(--body);letter-spacing:.12em;text-transform:uppercase;color:#cfe0e0}
+.price{display:flex;align-items:baseline;gap:8px;margin:10px 0 14px;font-weight:600;color:#dbe7e7}
+.price b{font:800 2.4rem/1 var(--display);color:#fff;letter-spacing:-.02em}
 
-footer{background:var(--ink);color:#b9cfd0;padding:28px 0;font-size:.9rem;border-top:1px solid rgba(255,255,255,.08)}
+/* PASOS */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.step{padding:26px}
+.num{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--bus);color:var(--ink);font:700 .95rem var(--body);margin-bottom:22px}
+.step h3{margin-bottom:10px}
+.step p,.feat p,.tier p,.faq p,.founder p{color:var(--muted);font-size:.95rem}
+
+/* SEGURIDAD */
+.feats{display:grid;grid-template-columns:1fr 1fr;gap:28px 56px}
+.feat{display:grid;grid-template-columns:36px 1fr;gap:18px}
+.ico{display:grid;place-items:center;width:36px;height:36px;border-radius:8px;background:rgba(255,201,51,.12);color:var(--bus);font-weight:700}
+.ico svg{width:18px;height:18px}
+.feat h3{font:700 1.02rem var(--body);letter-spacing:0;margin-bottom:4px}
+
+/* PRECIOS */
+.tiers{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.tier{padding:30px 30px 34px}
+.tier.featured{background:var(--card-2);border-color:rgba(255,201,51,.55)}
+.tier-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.badge{background:var(--bus);color:var(--ink);font:700 .72rem var(--body);letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.tier .price{margin:18px 0 12px}
+.tier p{margin-bottom:16px}
+
+/* CENTROS */
+.centros{display:flex;align-items:center;justify-content:space-between;gap:32px;padding:32px 30px}
+.centros h2{font-size:clamp(1.5rem,2.6vw,1.9rem);margin-bottom:8px}
+.centros p{color:var(--muted);max-width:34em}
+.centros select{flex:0 0 260px;padding:14px 16px;font:inherit;font-size:.95rem;border:2px solid transparent;border-radius:10px;background:#fff;color:var(--ink);cursor:pointer}
+.centros select:focus{outline:none;border-color:var(--bus)}
+.centro-msg{font-weight:600;color:var(--route-l)}
+.centro-msg:not(:empty){margin-top:10px}
+
+/* QUIÉNES SOMOS */
+.about{display:grid;grid-template-columns:1fr 1.45fr;gap:56px;align-items:start}
+.founder{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;padding:24px}
+.avatar{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#ffd75e,#f2a531);color:var(--ink);font:800 1.1rem var(--display)}
+.founder h3{font:700 1rem var(--body);margin-bottom:4px}
+.faqs{display:grid;gap:12px}
+.faq{padding:20px 22px}
+.faq h3{font:700 1rem var(--body);margin-bottom:6px}
+
+footer{color:var(--muted);padding:28px 0;font-size:.9rem;border-top:1px solid var(--line)}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.float{position:fixed;right:20px;bottom:20px;z-index:10;display:inline-flex;align-items:center;gap:8px;box-shadow:0 10px 30px rgba(0,0,0,.35);border-radius:999px;padding:12px 20px;font-size:.92rem}
 
-@media(max-width:700px){
-  .btn{width:100%}
+@media(max-width:900px){
+  nav a:not(.btn){display:none}
+  .hero-grid,.about{grid-template-columns:1fr;gap:40px}
+  .steps,.tiers,.feats{grid-template-columns:1fr}
+  .centros{flex-direction:column;align-items:stretch}
+  .centros select{flex-basis:auto}
 }
-@media(prefers-reduced-motion:reduce){.soon i{animation:none}html{scroll-behavior:auto}}
+@media(max-width:600px){
+  section{padding:64px 0}
+  .signup .btn{width:100%}
+}
+@media(prefers-reduced-motion:reduce){.pill i{animation:none}html{scroll-behavior:auto}}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G69PFJQ09L"></script>
@@ -59,36 +132,199 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </head>
 <body>
 
-<section class="hero" aria-labelledby="titulo">
+<header>
   <div class="wrap">
-    <header>
-      <span class="logo">
-        <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#ffc933"/><path d="M8 22c0-6 4-6 8-6s8 0 8-6" fill="none" stroke="#0e2a33" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 6"/><circle cx="8" cy="22" r="3" fill="#0e2a33"/><circle cx="24" cy="10" r="3" fill="#0e2a33"/></svg>
-        Movilidad Escolar
-      </span>
-    </header>
-    <div class="hero-body" id="registro">
-      <div class="soon"><i></i>Lanzamos en breve</div>
-      <h1 id="titulo">La tranquilidad de saber que tus hijos llegan a tiempo y seguros, sin deber favores a nadie.</h1>
-      <p class="lead">Si un turno, un viaje o una reunión se alargan, una familia verificada del instituto de tus hijos los recoge por ti. Se compensa con créditos de tiempo, sin deudas morales. Para familias con hijos de 9 a 17 años.</p>
+    <a class="logo" href="#">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#ffc933"/><path d="M8 22c0-6 4-6 8-6s8 0 8-6" fill="none" stroke="#0e2a33" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 6"/><circle cx="8" cy="22" r="3" fill="#0e2a33"/><circle cx="24" cy="10" r="3" fill="#0e2a33"/></svg>
+      Movilidad Escolar
+    </a>
+    <nav aria-label="Principal">
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#seguridad">Seguridad</a>
+      <a href="#precios">Precios</a>
+      <a href="#quienes-somos">Quiénes somos</a>
+      <a class="btn btn-sm" href="#registro">Unirme al piloto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" aria-labelledby="titulo">
+  <div class="wrap hero-grid">
+    <div id="registro">
+      <div class="pill"><i></i>Piloto abierto por institutos · plazas limitadas por centro</div>
+      <h1 id="titulo">Tus hijos llegan a tiempo y seguros, sin deber favores a nadie.</h1>
+      <p class="lead">Si un turno, un vuelo o una reunión se alargan, lanzas un aviso y otra familia verificada de su centro los recoge. Tú te quedas tranquilo en el trabajo. Para familias con hijos de 9 a 17 años.</p>
 
       <!-- Formulario conectado a Brevo -->
       <form class="signup" action="https://7ea8cac9.sibforms.com/serve/MUIFABGU-qYv0rzmRdiMYQ_6mWiCODko3xQIomTROzrViYERcYP51DvGm8kR354N79AG_8w1J_KHiXbyyI8DonlSFa6xiUYFceVBrtlJ1530QiBBoiI0Ll_5KByS4qwm2JcjKgdLmOovbUs8sg2MfqYnERYZJpusZ_F-rS0bBjjpTHtX-tUAFtjPYJDfcEt-66JducMTb4oigTPJIg==" method="POST" target="hidden_iframe" novalidate>
         <input type="email" name="EMAIL" placeholder="tu@correo.com" aria-label="Correo electrónico" autocomplete="email" required>
-        <button class="btn" type="submit">Quiero acceso anticipado</button>
-        <label class="consent"><input type="checkbox" required> Acepto recibir un aviso del lanzamiento y la política de privacidad.</label>
+        <button class="btn" type="submit">Reservar mi plaza en el piloto</button>
+        <label class="consent"><input type="checkbox" required> Acepto la política de privacidad. Sin permanencia: te avisamos antes de cobrar nada.</label>
         <p class="msg" role="status" aria-live="polite"></p>
       </form>
       <!-- Iframe invisible para procesar el envío sin recargar -->
-      <iframe name="hidden_iframe" style="display:none;"></iframe>
+      <iframe name="hidden_iframe" title="Envío del formulario" style="display:none;"></iframe>
+    </div>
 
+    <aside class="card plan" aria-label="Plan Premium Rescate">
+      <div class="plan-name">Plan Premium Rescate</div>
+      <div class="price"><b>4,99 €</b> / mes por familia</div>
+      <ul class="checks">
+        <li>30 días de prueba gratis</li>
+        <li>Pide ayuda aunque no tengas créditos</li>
+        <li>Prioridad al reasignar tu aviso</li>
+        <li>Mes a mes, sin permanencia</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section id="como-funciona" aria-labelledby="como-titulo">
+  <div class="wrap">
+    <div class="eyebrow">Cómo funciona</div>
+    <h2 id="como-titulo">Un aviso, una familia de confianza y la confirmación de llegada.</h2>
+    <div class="steps">
+      <article class="card step">
+        <div class="num">1</div>
+        <h3>Avisa o prográmalo</h3>
+        <p>Lanza el aviso en el momento o déjalo programado antes de tu turno. Tu pareja o tu hijo mayor también pueden lanzarlo con tu permiso.</p>
+      </article>
+      <article class="card step">
+        <div class="num">2</div>
+        <h3>Una familia acepta</h3>
+        <p>Llega a las familias verificadas del centro y del barrio de cada hijo. Si nadie acepta en 10 minutos, avisamos a tu contacto de respaldo.</p>
+      </article>
+      <article class="card step">
+        <div class="num">3</div>
+        <h3>Te avisamos al llegar</h3>
+        <p>Ves quién los recoge, con nombre y foto, y recibes «ya está en la academia» cuando llegan al destino.</p>
+      </article>
     </div>
   </div>
 </section>
 
+<section id="seguridad" aria-labelledby="seguridad-titulo">
+  <div class="wrap">
+    <div class="eyebrow">Seguridad y confianza</div>
+    <h2 id="seguridad-titulo">Solo familias de tu centro, con nombre, foto y valoraciones.</h2>
+    <div class="feats">
+      <div class="feat">
+        <span class="ico" aria-hidden="true">✓</span>
+        <div><h3>Verificación del centro</h3><p>Cada familia se verifica con el correo educativo del centro antes de poder aceptar un aviso.</p></div>
+      </div>
+      <div class="feat">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5a4.5 4.5 0 0 0 7 0M9 9.5h.01M15 9.5h.01"/></svg></span>
+        <div><h3>Perfiles visibles</h3><p>Nombre, foto real y valoraciones de otros padres. Nada de «una familia del centro» sin cara.</p></div>
+      </div>
+      <div class="feat">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h14l-4-4M20 16H6l4 4"/></svg></span>
+        <div><h3>Custodia compartida</h3><p>Enlaza el perfil del otro progenitor para que vea y apruebe con quién van los niños.</p></div>
+      </div>
+      <div class="feat">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7v9H4z"/><path d="M10 20v-5h4v5"/></svg></span>
+        <div><h3>Varios hijos, varios centros</h3><p>Un solo aviso para hermanos en colegios o actividades distintas, enviado a las familias de cada uno.</p></div>
+      </div>
+      <div class="feat">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <div><h3>Créditos sin saldo en rojo</h3><p>Ganas créditos cuando llevas a otros chicos y los gastas cuando te ayudan. Con Premium, el saldo nunca se queda en negativo.</p></div>
+      </div>
+      <div class="feat">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+        <div><h3>Datos de menores protegidos</h3><p>Solo guardamos lo imprescindible y la ubicación se comparte únicamente durante el trayecto (RGPD).</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="precios" aria-labelledby="precios-titulo">
+  <div class="wrap">
+    <div class="eyebrow">Precios</div>
+    <h2 id="precios-titulo">Gratis si aportas viajes. Premium si tus horarios no te dejan.</h2>
+    <div class="tiers">
+      <article class="card tier">
+        <div class="tier-head"><span class="plan-name">Básico</span></div>
+        <div class="price"><b>0 €</b> / mes</div>
+        <p>Para familias que pueden llevar a otros chicos de vez en cuando.</p>
+        <ul class="checks">
+          <li>Avisos a familias verificadas</li>
+          <li>Ganas y gastas créditos de tiempo</li>
+          <li>Aviso de llegada al destino</li>
+        </ul>
+      </article>
+      <article class="card tier featured">
+        <div class="tier-head"><span class="plan-name">Premium Rescate</span><span class="badge">30 días gratis</span></div>
+        <div class="price"><b>4,99 €</b> / mes por familia</div>
+        <p>Para turnos, viajes o jornadas que no te permiten devolver viajes.</p>
+        <ul class="checks">
+          <li>Pide ayuda aunque no tengas créditos</li>
+          <li>Prioridad al reasignar tu aviso</li>
+          <li>Todos tus hijos, mismo precio</li>
+          <li>Mes a mes y sin permanencia</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="centros-titulo">
+  <div class="wrap">
+    <div class="card centros">
+      <div>
+        <div class="eyebrow">¿Hay familias en tu centro?</div>
+        <h2 id="centros-titulo">Arrancamos centro a centro.</h2>
+        <p>Abrimos el piloto en cada instituto cuando se apuntan al menos 15 familias. Elige el tuyo y te decimos cuántas faltan.</p>
+        <p class="centro-msg" role="status" aria-live="polite"></p>
+      </div>
+      <select id="centro" aria-label="Elige tu centro educativo">
+        <option value="" selected disabled>Elige tu centro educativo</option>
+        <option value="otro">Mi centro no aparece</option>
+      </select>
+    </div>
+  </div>
+</section>
+
+<section id="quienes-somos" aria-labelledby="quienes-titulo">
+  <div class="wrap about">
+    <div>
+      <div class="eyebrow">Quiénes somos</div>
+      <h2 id="quienes-titulo">Un proyecto real, con nombre y apellidos.</h2>
+      <div class="card founder">
+        <div class="avatar" aria-hidden="true">IB</div>
+        <div>
+          <h3>Ignacio Blanquero</h3>
+          <p>Fundador del proyecto. Hemos diseñado el servicio a partir de entrevistas con familias con turnos, viajes y custodias compartidas.</p>
+        </div>
+      </div>
+    </div>
+    <div class="faqs">
+      <div class="card faq">
+        <h3>¿Ya funciona?</h3>
+        <p>Estamos abriendo un piloto gratuito por centros. Si te apuntas, te avisamos cuando tu instituto tenga familias suficientes.</p>
+      </div>
+      <div class="card faq">
+        <h3>¿Qué pasa si hay un golpe durante el trayecto?</h3>
+        <p>Estamos cerrando un seguro de responsabilidad civil para los trayectos del servicio. Te lo confirmaremos por escrito antes de que empiece el piloto.</p>
+      </div>
+      <div class="card faq">
+        <h3>¿Y si nadie acepta mi aviso?</h3>
+        <p>A los 10 minutos avisamos a tu contacto de respaldo (tu pareja, un abuelo…) para que no te enteres tarde.</p>
+      </div>
+      <div class="card faq">
+        <h3>¿Puedo darme de baja cuando quiera?</h3>
+        <p>Sí. El Premium se paga mes a mes, sin permanencia y por familia, no por hijo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
 <footer>
-  <div class="wrap"><span>© 2026 Movilidad Escolar</span><span>Familias verificadas del mismo instituto</span></div>
+  <div class="wrap"><span>© 2026 Movilidad Escolar</span><span>Una red vecinal de familias verificadas</span></div>
 </footer>
+
+<!-- TODO: cambiar por el correo de contacto real -->
+<a class="btn float" href="mailto:hola@example.com?subject=Dudas%20sobre%20Movilidad%20Escolar">💬 ¿Dudas? Escríbenos</a>
 
 <script>
 document.querySelector('form.signup').addEventListener('submit', function(e){
@@ -96,9 +332,9 @@ document.querySelector('form.signup').addEventListener('submit', function(e){
       email = f.querySelector('input[type=email]'),
       ok = f.querySelector('input[type=checkbox]'),
       msg = f.querySelector('.msg');
-      
+
   msg.classList.remove('err');
-  
+
   // Validaciones
   if(!email.value || !email.checkValidity()){
     e.preventDefault(); // Detenemos el envío porque hay un error
@@ -113,19 +349,48 @@ document.querySelector('form.signup').addEventListener('submit', function(e){
     msg.textContent = 'Marca la casilla de privacidad para continuar.';
     return;
   }
-  
+
   // Si llegamos aquí, el formulario se envía al iframe oculto
-  
+
   // 1. Mandamos el evento a Google Analytics para medir la conversión
   if(window.gtag){
     gtag('event','generate_lead',{method:'landing'});
   }
-  
+
   // 2. Mostramos tu mensaje de éxito
-  msg.textContent = '¡Listo! Te avisaremos en cuanto lancemos.';
-  
+  msg.textContent = '¡Listo! Te avisaremos cuando tu centro arranque.';
+
   // 3. Limpiamos el formulario después de 2 segundos
   setTimeout(function(){ f.reset(); }, 2000);
+});
+
+// Centros del piloto: añade aquí cada instituto con las familias apuntadas
+// Ejemplo: {nombre:'IES Ejemplo', familias:6}
+var CENTROS = [];
+var MINIMO = 15;
+var select = document.getElementById('centro'),
+    centroMsg = document.querySelector('.centro-msg');
+
+CENTROS.forEach(function(c, i){
+  var o = document.createElement('option');
+  o.value = i;
+  o.textContent = c.nombre;
+  select.insertBefore(o, select.lastElementChild);
+});
+
+select.addEventListener('change', function(){
+  if(select.value === 'otro'){
+    centroMsg.textContent = 'Apúntate arriba y lo añadimos: serás la primera familia de tu centro.';
+    return;
+  }
+  var c = CENTROS[select.value],
+      faltan = Math.max(MINIMO - c.familias, 0);
+  centroMsg.textContent = faltan
+    ? 'Faltan ' + faltan + ' familias para arrancar en ' + c.nombre + '.'
+    : '¡' + c.nombre + ' ya tiene familias suficientes! Reserva tu plaza.';
+  if(window.gtag){
+    gtag('event','select_centro',{centro:c.nombre});
+  }
 });
 </script>
 </body>
