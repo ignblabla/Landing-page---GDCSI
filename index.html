@@ -131,6 +131,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </script>
 </head>
 <body>
+<!-- Selector de versiones (evolución de la landing) -->
+<style>
+.vswitch{position:fixed;top:12px;left:12px;z-index:50;display:flex;align-items:center;gap:6px;background:rgba(10,30,36,.92);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:4px 6px 4px 12px;font:600 .78rem/1 'Figtree',system-ui,sans-serif;color:#b9cfd0;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+.vswitch select{appearance:none;-webkit-appearance:none;background:#ffc93c url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%2310292f' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 9px center;color:#10292f;border:0;border-radius:999px;padding:6px 26px 6px 10px;font:700 .78rem/1 'Figtree',system-ui,sans-serif;cursor:pointer}
+@media(max-width:1200px){.vswitch{position:static;margin:8px 12px 0;width:max-content}}
+</style>
+<label class="vswitch">Versión
+  <select onchange="location.href=this.value" aria-label="Ver otra versión de la landing">
+    <option value="v1.html">v1</option>
+    <option value="v2.html">v2</option>
+    <option value="index.html" selected>v3 (actual)</option>
+  </select>
+</label>
+
 
 <header>
   <div class="wrap">
